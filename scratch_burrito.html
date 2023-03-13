@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Scratch Extension</title>
+</head>
+<body>
+    <script src="https://sheeptester.github.io/scratch-gui/dist/scratch-gui.min.js"></script>
+    <script src="https://raw.githubusercontent.com/yayy80/scratch-ext/main/burrito.js"></script>
+    <script>
+        // Create a new Scratch project and add your extension
+        var vm = new window.Scratch.ScratchVM();
+        vm.extensionManager.loadExtensionURL('https://sheeptester.github.io/scratch-gui/?url=https://raw.githubusercontent.com/<username>/<repository>/<branch>/<path-to-extension>.js');
+    </script>
+</body>
+</html>
