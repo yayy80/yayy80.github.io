@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>NVIDIA GPU Check</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<h1>NVIDIA GPU Check</h1>
+	<button id="check-btn">Check GPU Status</button>
+	<div id="result"></div>
+	<script>
+		$(document).ready(function(){
+			$('#check-btn').click(function(){
+				$.ajax({
+					url: 'error.py',
+					type: 'GET',
+					success: function(response){
+						response = JSON.parse(response);
+						if(response.status == 'success'){
+							$('#result').html(response.message);
+						}
+						else{
+							window.location.replace('error.html');
+						}
+					},
+					error: function(xhr, status, error){
+						console.log(xhr);
+						console.log(status);
+						console.log(error);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>
